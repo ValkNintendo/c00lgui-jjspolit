@@ -4742,43 +4742,45 @@ button.FontSize = "Size14"
 button.Text = "Decal Spam"
 button.TextColor3 = whit
 button.MouseButton1Down:connect(function()
-	decalID = frame.Settings.Page1["Skybox/Decal ID"].TextBox.Text
-	function exPro(root)
-		for _, v in pairs(root:GetChildren()) do
-			if v:IsA("Decal") and v.Texture ~= "http://www.roblox.com/asset/?id="..decalID then
-				v.Parent = nil
-			elseif v:IsA("BasePart") then
-				v.Material = "Plastic"
-				v.Transparency = 0
-				local One = Instance.new("Decal", v)
-				local Two = Instance.new("Decal", v)
-				local Three = Instance.new("Decal", v)
-				local Four = Instance.new("Decal", v)
-				local Five = Instance.new("Decal", v)
-				local Six = Instance.new("Decal", v)
-				One.Texture = "http://www.roblox.com/asset/?id="..decalID
-				Two.Texture = "http://www.roblox.com/asset/?id="..decalID
-				Three.Texture = "http://www.roblox.com/asset/?id="..decalID
-				Four.Texture = "http://www.roblox.com/asset/?id="..decalID
-				Five.Texture = "http://www.roblox.com/asset/?id="..decalID
-				Six.Texture = "http://www.roblox.com/asset/?id="..decalID
-				One.Face = "Front"
-				Two.Face = "Back"
-				Three.Face = "Right"
-				Four.Face = "Left"
-				Five.Face = "Top"
-				Six.Face = "Bottom"
-			end
-			exPro(v)
+	--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+function exPro(root)
+	for _, v in pairs(root:GetChildren()) do
+		if v:IsA("Decal") and v.Texture ~= "http://www.roblox.com/asset/?id=91250974185590" then
+			v.Parent = nil
+		elseif v:IsA("BasePart") then
+			v.Material = "Plastic"
+			v.Transparency = 0
+			local One = Instance.new("Decal", v)
+			local Two = Instance.new("Decal", v)
+			local Three = Instance.new("Decal", v)
+			local Four = Instance.new("Decal", v)
+			local Five = Instance.new("Decal", v)
+			local Six = Instance.new("Decal", v)
+			One.Texture = "http://www.roblox.com/asset/?id=91250974185590"
+			Two.Texture = "http://www.roblox.com/asset/?id=91250974185590"
+			Three.Texture = "http://www.roblox.com/asset/?id=91250974185590"
+			Four.Texture = "http://www.roblox.com/asset/?id=91250974185590"
+			Five.Texture = "http://www.roblox.com/asset/?id=91250974185590"
+			Six.Texture = "http://www.roblox.com/asset/?id=91250974185590"--put id in here i will put it in description
+			One.Face = "Front"
+			Two.Face = "Back"
+			Three.Face = "Right"
+			Four.Face = "Left"
+			Five.Face = "Top"
+			Six.Face = "Bottom"
 		end
+		exPro(v)
 	end
-	function asdf(root)
-		for _, v in pairs(root:GetChildren()) do
-			asdf(v)
-		end
+end
+function asdf(root)
+	for _, v in pairs(root:GetChildren()) do
+		asdf(v)
 	end
-	exPro(game.Workspace)
-	asdf(game.Workspace)
+end
+exPro(game.Workspace)
+asdf(game.Workspace)
 end)
 --
 local button = Instance.new("TextButton")
